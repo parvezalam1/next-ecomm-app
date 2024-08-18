@@ -1,0 +1,64 @@
+[debug] [2024-08-02T12:17:23.891Z] ----------------------------------------------------------------------
+[debug] [2024-08-02T12:17:23.899Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\parvez\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-08-02T12:17:23.900Z] CLI Version:   13.15.0
+[debug] [2024-08-02T12:17:23.901Z] Platform:      win32
+[debug] [2024-08-02T12:17:23.901Z] Node Version:  v21.1.0
+[debug] [2024-08-02T12:17:23.903Z] Time:          Fri Aug 02 2024 17:47:23 GMT+0530 (India Standard Time)
+[debug] [2024-08-02T12:17:23.904Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-08-02T12:17:24.058Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-08-02T12:17:24.060Z] > authorizing via signed-in user (saifhero210@gmail.com)
+[debug] [2024-08-02T12:17:24.060Z] [iam] checking project ecomm-next-app-17092 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-08-02T12:17:24.067Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ecomm-next-app-17092:testIamPermissions [none]
+[debug] [2024-08-02T12:17:24.067Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ecomm-next-app-17092:testIamPermissions x-goog-quota-user=projects/ecomm-next-app-17092
+[debug] [2024-08-02T12:17:24.067Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ecomm-next-app-17092:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-08-02T12:17:26.220Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ecomm-next-app-17092:testIamPermissions 200
+[debug] [2024-08-02T12:17:26.222Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ecomm-next-app-17092:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-08-02T12:17:26.227Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ecomm-next-app-17092 [none]
+[debug] [2024-08-02T12:17:26.919Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ecomm-next-app-17092 200
+[debug] [2024-08-02T12:17:26.920Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ecomm-next-app-17092 {"projectId":"ecomm-next-app-17092","projectNumber":"330193590394","displayName":"ecomm-next-app","name":"projects/ecomm-next-app-17092","resources":{"hostingSite":"ecomm-next-app-17092"},"state":"ACTIVE","etag":"1_47eb345e-ba21-465e-8b29-8944c3cef743"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-08-02T12:17:49.296Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/ecomm-next-app-17092/sites/ecomm-next-app-17092 [none]
+[debug] [2024-08-02T12:17:50.811Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/ecomm-next-app-17092/sites/ecomm-next-app-17092 200
+[debug] [2024-08-02T12:17:50.812Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/ecomm-next-app-17092/sites/ecomm-next-app-17092 {"name":"projects/ecomm-next-app-17092/sites/ecomm-next-app-17092","defaultUrl":"https://ecomm-next-app-17092.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.2
+
+[info]   - Environments: .env
+
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info]  ⨯ ESLint: Cannot read config file: F:\NextJs_Project\NextE-Commerce\.eslintrc.json Error: Expected double-quoted property name in JSON at position 43 (line 4 column 1)
+
+[info] Failed to compile.
+
+
+[info] ./src/app/[slug]/page.tsx:54:9
+Type error: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+  52 |         <div className='h-1 bg-slate-300'></div>
+  53 |       {product.variants && product.productOptions ? (<CustomizeProduct 
+> 54 |         productId={product._id}
+     |         ^
+  55 |          productVariants={product.variants} 
+  56 |         productOptions={product.productOptions} />
+  57 |       ):(
+
+[debug] [2024-08-02T12:18:57.838Z] Error: ENOENT: no such file or directory, open 'F:\NextJs_Project\NextE-Commerce\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.

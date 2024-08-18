@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#cat-scrollbar::-webkit-scrollbar{
+    width: 0px;
+}
+#product-images::-webkit-scrollbar{
+    width: 0px;
+}
+#auth::-webkit-scrollbar{
+width: 0px;
+}

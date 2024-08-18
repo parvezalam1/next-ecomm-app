@@ -1,0 +1,8 @@
+https://manage.wix.com/dashboard/3696efdc-03b4-44a6-ab3c-86b065d927e5/store/products/product/975bc5ac-c45f-f81c-fd5c-c909f20d89fa?referralInfo=sidebar&viewId=all-items-view&selectedColumns=0,Name,ProductType,ProductSku,ComparePrice,ProductInventoryStatus,ProductRibbon%20false,ProductBrand%20false
+
+
+7de303c0-918c-4e32-b3e2-b52e02b1ba0a
+
+https://dev.wix.com/docs/go-headless
+
+hosting URL:https://next-ecomm-app.web.app
