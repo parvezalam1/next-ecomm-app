@@ -8,9 +8,7 @@ const Pagination=({currentPage,hasPrev,hasNext}:{currentPage:number,hasPrev:bool
     const {replace}=useRouter();
     const createPageUrl=(pageIndex:number)=>{
       const params=new URLSearchParams(searchParams);
-      console.log('pagenumber',pageIndex);
       params.set("page",pageIndex.toString())
-      console.log('page',params)
       replace(`${pathname}?${params.toString()}`)
     }
   return (

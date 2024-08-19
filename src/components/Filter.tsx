@@ -23,34 +23,40 @@ const  Filter=()=>{
           >
             <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Type</option>
             <option value="physical" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Physical</option>
-            <option value="deigital" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Digital</option>
+            <option value="digital" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Digital</option>
           </select>
-            <input type="number" name='min' placeholder='Min Price' className='w-28  py-1 px-3 ring-1 ring-black rounded-2xl'
+            <input type="number" name='min' placeholder='Min Price' className='w-28 text-sm py-1 px-3 ring-1 ring-black rounded-2xl'
              onChange={handlerFilterChange}
             />
-            <input type="number" name='max' placeholder='Max Price' className='w-28 py-1 px-3 ring-1 ring-black rounded-2xl'
+            <input type="number" name='max' placeholder='Max Price' className='w-28 text-sm py-1 px-3 ring-1 ring-black rounded-2xl'
              onChange={handlerFilterChange}/>
-            <select name="size" id="" className='w-20 py-1 px-3 ring-1 ring-black rounded-2xl'
+            {/* <select name="size" id="" className='w-20 py-1 px-3 ring-1 ring-black rounded-2xl'
              onChange={handlerFilterChange}>
             <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Size</option>
             <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'></option>
             <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'></option>
-          </select>
-          <select name="" id="" className='w-28 py-1 px-3 ring-1 ring-black rounded-2xl'>
+          </select> */}
+          {/* <select name="" id="" className='w-28 py-1 px-3 ring-1 ring-black rounded-2xl'>
             <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Colors</option>
             <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Physical</option>
             <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Digital</option>
-          </select>
+          </select> */}
           <select name="category" id="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'
            onChange={handlerFilterChange}>
             <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Category</option>
-            <option value="new arrival" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>New Arrival</option>
-            <option value="popular" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Popular</option>
+            <option value="all-products" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>All Products</option>
+            <option value="accessories" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Accessories</option>
+            <option value="featured" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Featured</option>
+            <option value="home" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Home</option>
+            <option value="jeans" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Jeans</option>
+            <option value="shoes" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Shoes</option>
+
+
           </select>
           <select name="" id="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>
             <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>All Filters</option>
-            <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Physical</option>
-            <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Digital</option>
+            {/* <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Physical</option>
+            <option value="" className='w-32 py-1 px-3 ring-1 ring-black rounded-2xl'>Digital</option> */}
           </select>
         </div>
         <div className="right h-9">

@@ -1,13 +1,14 @@
+"use server"
 import React, { Suspense } from 'react'
 import Filter from '../../components/Filter';
 import { collections } from '@wix/stores';
 import { wixClientServer } from '@/liberary/wixClientServer';
 import ProductList from '@/components/ProductList';
 export default async function page({searchParams}:{searchParams:any}) {
-  // console.log(searchParams.cat)
+  console.log('search ',searchParams)
   const wixClient=await wixClientServer();
   // const items  = await wixClient.collections.queryCollectionBySlug(searchParams.cat || "all_product");
-  const cat= await wixClient.collections.getCollectionBySlug(searchParams.cat || "all-product");
+  const cat= await wixClient.collections.getCollectionBySlug(searchParams.cat || "all-products");
   return (
     <div className='md:p-5 '>
       <div className='mx-auto w-full md:w-2/3 md:p-5 p-2 bg-stone-200 h-60 flex justify-center items-center flex-col gap-4'>

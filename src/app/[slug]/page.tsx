@@ -81,3 +81,5 @@ const singlePage = async({params}:{params:{slug:any}}) => {
 }
 
 export default singlePage;
+
+

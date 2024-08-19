@@ -9,27 +9,43 @@ import Pagination from './Pagination';
 const Product_per_page=4;
 export default async function ProductList({categoryId,limit,searchParam}:{categoryId:string;limit?:number,
 searchParam?:any}) {
-    console.log('searchParam list',searchParam)
     let wixClient= await wixClientServer();
+    let cat:any;
+    if(searchParam?.category){
+
+        cat= await wixClient.collections.getCollectionBySlug(searchParam?.category || "all-products");
+    }
+
+    
     const productQuery= wixClient.products
     .queryProducts()
     .startsWith("name",searchParam?.name || "")
-    .hasSome("productType",searchParam?.type || "physical"|| "digital")
-    .eq("collectionIds",categoryId)
+    .hasSome("productType",[searchParam?.type || "physical" , "digital"])
+    .eq("collectionIds",[cat?.collection?._id || categoryId])
+    // .eq("name",searchParam?.category)
     .lt("priceData.price",searchParam?.max || 999999)
     .gt("priceData.price",searchParam?.min | 0)
+
+    // .exists("category.categoryName",searchParam?.category)
     .limit(limit || Product_per_page)
     .skip(searchParam?.page ? parseInt(searchParam.page) * (limit || Product_per_page ):0);
-    // .find();
+//     if(searchParam?.category){
+// productQuery.eq("collectionIds",cat?.collection?._id)
+//     }else{
+// productQuery.eq("collectionIds",categoryId)
+        
+//     }
     if(searchParam?.sort){
         const [sortType,sortBy]=searchParam.sort.split(" ");
+
         if(sortType==="asc"){
             productQuery.ascending(sortBy)
         }
         if(sortType==='desc'){
             productQuery.descending(sortBy)
         }
-    }
+    
+}
     const res=await productQuery.find();
     return (
         <>

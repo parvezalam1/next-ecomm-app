@@ -7,8 +7,8 @@ let slider = [
     {
 
         id: 1,
-        title: "lorem ipsum dolor sit amet",
-        discription: "lorem ipsum dolor sit amet lorem fdkfj",
+        title: "Get Ready Sale Up To 50% Off!",
+        discription: "Summer Sale Collections",
         img: "https://images.pexels.com/photos/18595564/pexels-photo-18595564/free-photo-of-vases-with-flowers-on-table.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         url: "/",
         bg_linear: "bg-gradient-to-r from-gray-300"
@@ -16,8 +16,8 @@ let slider = [
     {
 
         id: 2,
-        title: "lorem ipsum dolor sit amet",
-        discription: "lorem ipsum dolor sit amet lorem fdkfj",
+        title: "Sale Up To 50% Off!",
+        discription: "Summer Sale Collections",
         img: "https://images.pexels.com/photos/10515653/pexels-photo-10515653.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         url: "/",
         bg_linear: "bg-gradient-to-r from-gray-300"
@@ -25,8 +25,8 @@ let slider = [
     {
 
         id: 3,
-        title: "lorem ipsum dolor sit amet",
-        discription: "lorem ipsum dolor sit amet lorem fdkfj",
+        title: "Sale Up To 50% Off!",
+        discription: "Summer Sale Collections",
         img: "https://images.pexels.com/photos/26098755/pexels-photo-26098755/free-photo-of-sleeping-penguin.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         url: "/",
         bg_linear: "bg-gradient-to-r from-gray-300"
@@ -34,8 +34,8 @@ let slider = [
     {
 
         id: 4,
-        title: "lorem ipsum dolor sit amet",
-        discription: "lorem ipsum dolor sit amet lorem fdkfj",
+        title: "Sale Up To 50% Off!",
+        discription: "Start Buy New Products",
         img: "https://images.pexels.com/photos/11379609/pexels-photo-11379609.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         url: "/",
         bg_linear: "bg-gradient-to-r from-gray-300"
@@ -43,15 +43,15 @@ let slider = [
 ]
 const Slider = () => {
     let [current, setCurrent] = useState(0);
-    // useEffect(()=>{
-    //     const clearInter=setInterval(()=>{
+    useEffect(()=>{
+        const clearInter=setInterval(()=>{
 
-    //         setCurrent((prev)=>prev===slider.length-1?0:prev+1)
-    //     },3000)
-    // return()=>{
-    //     clearInterval(clearInter)
-    // }
-    // },[])
+            setCurrent((prev)=>prev===slider.length-1?0:prev+1)
+        },10000)
+    return()=>{
+        clearInterval(clearInter)
+    }
+    },[])
     return (
         <div className='h-[calc(100vh-64px)] overflow-hidden '>
             <div className={` w-max h-full flex  transition-all duration-1000 ease-in `}

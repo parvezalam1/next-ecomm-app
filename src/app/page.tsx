@@ -26,7 +26,7 @@ const HomePage = async() => {
       <CategoryList />
 </Suspense>
       <h1 className='container mx-auto py-2 px-10 bg-slate-200 text-fuchsia-400 text-3xl font-extrabold'>New Products List</h1>
-    {/* <ProductList /> */}
+    <ProductList categoryId={"fb03995e-c3a4-2fbc-262d-0ef20cbdac14"} />
     </div>
   )
 }

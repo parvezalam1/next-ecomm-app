@@ -117,7 +117,7 @@ const loginPage = () => {
           mode == MODE.REGISTER ? (
             <div className='space-y-3'>
               <label htmlFor="username" className='px-1  py-1 text-sm font-semibold'>Username</label><br />
-              <input type="text" placeholder='Enter Username' name='username'
+              <input type="text" placeholder='Enter Username' name='username' required
                 className='w-full py-1 px-2 border-none outline-none rounded-md text-md font-semibold bg-zinc-200 ring-1 ring-gray-400 text-zinc-800'
                 onChange={(e) => setUsername(e.target.value)} />
             </div>
@@ -127,14 +127,14 @@ const loginPage = () => {
           mode !== MODE.PASSWORD_VERIFY ? (
             <div className='space-y-1'>
               <label htmlFor="useremail" className='px-1  py-1 text-sm font-semibold '>User Email</label><br />
-              <input type="email" name='useremail' placeholder='Info@gamil.com'
+              <input type="email" name='useremail' placeholder='Info@gamil.com' required
                 onChange={(e) => setEmail(e.target.value)}
                 className='w-full py-1 px-2 border-none outline-none rounded-md text-md font-semibold bg-zinc-200 ring-1 ring-gray-400 text-zinc-800' />
             </div>
           ) : (
             <div className='space-y-1'>
               <label htmlFor="useremail" className='px-1  py-1 text-sm font-semibold '>Email Code</label><br />
-              <input type="text" name='emailcode' placeholder='Email Code'
+              <input type="text" name='emailcode' placeholder='Email Code' required
                 onChange={(e) => setEmailCode(e.target.value)}
                 className='w-full py-1 px-2 border-none outline-none rounded-md text-md font-semibold bg-zinc-200 ring-1 ring-gray-400 text-zinc-800' />
             </div>
@@ -144,7 +144,7 @@ const loginPage = () => {
           mode == MODE.LOGIN || mode == MODE.REGISTER ? (
             <div className='space-y-3'>
               <label htmlFor="userpassword" className='px-1  py-1 text-sm font-semibold '>User Password</label><br />
-              <input type="password" name='userpassword' placeholder='Enter Password'
+              <input type="password" name='userpassword' placeholder='Enter Password' required
                 onChange={(e) => setPassword(e.target.value)}
                 className='w-full py-1 px-2 border-none outline-none rounded-md text-md font-semibold bg-zinc-200 ring-1 ring-gray-400 text-zinc-800' />
             </div>
@@ -153,7 +153,7 @@ const loginPage = () => {
         {
           allFieldsRequired && <h1 className='bg-red-200 font-semibold text-xl text-slate-800 py-1 px-5'>All Fields Are Required</h1>
         }
-        <button className='bg-red-300 text-md font-extrabold w-[266px] text-white py-2 rounded-md disabled:cursor-not-allowed disabled:bg-slate-300'
+        <button className='bg-red-300 text-md font-extrabold w-[255px] text-white py-1 rounded-md disabled:cursor-not-allowed disabled:bg-slate-300'
           disabled={isLoading}>{isLoading ? "Loading..." : formButton}</button>
         {
           mode === "LOGIN" ? <span className='whitespace-nowrap'>

@@ -17,7 +17,6 @@ const wixClient=useWixClient()
       const checkout= await wixClient.currentCart.createCheckoutFromCurrentCart({
         channelType:currentCart.ChannelType.WEB,
       });
-      console.log('checkout',checkout)
       const {redirectSession} = await wixClient.redirects.createRedirectSession({
         ecomCheckout:{checkoutId:checkout.checkoutId},
         callbacks:{

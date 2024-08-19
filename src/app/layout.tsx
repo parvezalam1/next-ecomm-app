@@ -1,6 +1,8 @@
+// "use client"
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { usePathname, useRouter } from 'next/navigation';
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 // import WixClientContextProvider from "@/context/wixContext"
@@ -16,6 +18,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //   let router = useRouter();
+  // console.log("usePatname",pathName)
+  // let pathName = usePathname();
   return (
     <html lang="en">
       <body className={inter.className}>
