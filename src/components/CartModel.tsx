@@ -34,7 +34,7 @@ const wixClient=useWixClient()
 
   }
   return (
-    <div className='z-10 fixed  top-[67px] right-1 lg:right-10 flex flex-col space-y-3 px-3 w-72 h-fit bg-slate-300 rounded-md p-1'>
+    <div className='z-10 absolute  top-[65px] right-[-15px] lg:right-[-70px] flex flex-col space-y-3 px-3 w-72 h-fit bg-slate-300 rounded-md p-1'>
         {isLoading?"Loading...":!cart.lineItems?<h1 className='bg-gray-100 text-center text-black font-semibold text-xl p-1'>Cart is Empty</h1>:
         <>
             <div className="title font-extrabold text-xl">Shipping Cart</div>

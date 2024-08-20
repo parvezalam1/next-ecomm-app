@@ -22,7 +22,6 @@ const handleProfile=() =>{
 }
 
   // AUTH WITH WIX-MANAGED AUTH
-  // const wixClient=useWixClient();
   // const login=async()=>{
   //   const loginRequestData = wixClient.auth.generateOAuthData(
   //     "http://localhost:3000"
@@ -59,9 +58,9 @@ const handleProfile=() =>{
          />
         {
           isProfileOpen && (
-            <div className='z-10 fixed bg-zinc-200 top-[67px] right-1 lg:right-10 px-3 w-fit h-fit p-1 shadow-[0px_0px__3px_rgb(0,0,20)] rounded-md flex items-center space-y-1 flex-col'>
+            <div className='z-10 absolute bg-zinc-200 top-[67px] right-[-16px] lg:right-[-60px] px-3 w-fit h-fit p-1 shadow-[0px_0px__3px_rgb(0,0,20)] rounded-md flex items-center space-y-1 flex-col'>
               <Link href="#" className='md:text-xl xl:w-32 text-center text-md  font-medium text-indigo-400 hover:text-black bg-indigo-200 hover:bg-green-300 px-5'>Profile</Link>
-              <Link href="#" className='md:text-xl xl:w-32 text-center text-md  font-medium text-indigo-400 hover:text-black bg-indigo-200 hover:bg-green-300 px-5'
+              <Link href="#" className='md:text-xl xl:w-32 text-center text-md whitespace-nowrap font-medium text-indigo-400 hover:text-black bg-indigo-200 hover:bg-green-300 px-5'
               onClick={handleLogout}>{isLogout?"Logging out...": "LogOut"}</Link>
             </div>
           )

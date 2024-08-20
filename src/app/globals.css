@@ -9,5 +9,6 @@
     width: 0px;
 }
 #auth::-webkit-scrollbar{
-width: 0px;
-}
+    width: 0px;
+    /* background-color: red; */
+    }

@@ -6,14 +6,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 // import { usePathname } from 'next/navigation';
 import React, { FormEvent, useState } from 'react'
-
 enum MODE {
   LOGIN = "LOGIN",
   REGISTER = "REGISTER",
   RESET_PASSWORD = "RESET PASSWORD",
-  PASSWORD_VERIFY = "PASSWORD_VERIFY"
+  EMAIL_VERIFICATION = "PASSWORD_VERIFY"
 }
-
 
 const loginPage = () => {
   const wixClient = useWixClient();
@@ -24,6 +22,7 @@ const loginPage = () => {
   let [emailCode, setEmailCode] = useState('');
   let [isLoading, setIsLoading] = useState(false);
   let [success, setSuccess] = useState("");
+  let [message,setMesssage]=useState("");
   let [error, setError] = useState("");
   let [allFieldsRequired, setAllFieldsRequired] = useState(false);
   let [mode, setMode] = useState(MODE.LOGIN)
@@ -31,7 +30,9 @@ const loginPage = () => {
   let router = useRouter();
 
 
-
+  if(isLoggedIn){
+    router.push('/')
+      }
   const formTitle = mode === MODE.LOGIN ? "Login" :
     mode === MODE.REGISTER ? "Register" :
       mode === MODE.RESET_PASSWORD ? "Reset Password" : "Password Verify"
@@ -66,11 +67,12 @@ const loginPage = () => {
           response = await wixClient.auth.sendPasswordResetEmail(
             email,
             pathName
-          )
+            )
+            setMesssage("Password reset email send. Please check your E-mail!");
           break;
-        case MODE.PASSWORD_VERIFY:
+        case MODE.EMAIL_VERIFICATION:
           response = await wixClient.auth.processVerification({
-            verificationCode: emailCode
+            verificationCode:emailCode,
           })
           break;
         default:
@@ -78,13 +80,21 @@ const loginPage = () => {
       }
       switch (response?.loginState) {
         case LoginState.SUCCESS:
-          setSuccess("Login Successfully! You Are Redired");
-          const tokens = await wixClient.auth.getMemberTokensForDirectLogin(response.data.sessionToken);
-          Cookies.set('refreshToken',JSON.stringify(tokens.refreshToken),{
-            expires:2
-          });
-          wixClient.auth.setTokens(tokens);
-          router.push("/");
+          if(mode===MODE.LOGIN){
+            setSuccess("Login Successfully! You Are Redired");
+            const tokens = await wixClient.auth.getMemberTokensForDirectLogin(response.data.sessionToken);
+            Cookies.set('refreshToken',JSON.stringify(tokens.refreshToken),{
+              expires:2
+            });
+            wixClient.auth.setTokens(tokens);
+            router.push("/");
+          }
+          else{
+            setSuccess("Register Successfully! You May Login Now");
+            setTimeout(() => {
+              setMode(MODE.LOGIN)
+            },2000);
+          }
           break;
 
         case LoginState.FAILURE:
@@ -99,6 +109,10 @@ const loginPage = () => {
           }else{
             setError("Something went wrong!")
           }
+          case LoginState.EMAIL_VERIFICATION_REQUIRED:
+            setMode(MODE.EMAIL_VERIFICATION);
+            case LoginState.OWNER_APPROVAL_REQUIRED:
+              setMesssage("Your account is pending approval")
       }
     } catch (err) {
       console.log(err)
@@ -110,7 +124,7 @@ const loginPage = () => {
 
   }
   return (
-    <div id='auth' className=' lg:container mx-auto w-full h-[calc(100vh-64px)]  px-4 flex gap-3'>
+    <div id='auth' className='lg:container mx-auto w-full h-[calc(100vh-64px)]  px-4 flex gap-3' >
       <form action="" onSubmit={handleSubmit} className='p-3 w-full my-auto h-fit flex items-center flex-col gap-4'>
         <h2 className='font-bold text-2xl uppercase'>{formTitle}</h2>
         {
@@ -124,7 +138,7 @@ const loginPage = () => {
           ) : null
         }
         {
-          mode !== MODE.PASSWORD_VERIFY ? (
+          mode !== MODE.EMAIL_VERIFICATION ? (
             <div className='space-y-1'>
               <label htmlFor="useremail" className='px-1  py-1 text-sm font-semibold '>User Email</label><br />
               <input type="email" name='useremail' placeholder='Info@gamil.com' required
@@ -166,12 +180,14 @@ const loginPage = () => {
           // <span onClick={()=>setMode(MODE.)} className='cursor-pointer'>Go Back</span>
         }
         {
-          success && <h1 className='bg-green-400 text-black py-1 px-5 font-semibold text-sm'>{success}</h1>
+          success && <h1 className='bg-green-400 text-black py-1 px-5 font-semibold whitespace-nowrap md:text-sm text-xs'>{success}</h1>
         }
         {
           error && <h1 className='bg-red-400 text-white py-1 px-5 font-semibold text-sm'>{error}</h1>
         }
-
+  {message &&
+    <h3 className='bg-red-300 text-black py-1 px-5 font-semibold whitespace-nowrap md:text-sm text-xs'>{message}</h3>
+  }
       </form>
     </div>
   )
